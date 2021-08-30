@@ -7,9 +7,9 @@ import "./App.css";
 
 const App = () => {
   return (
-    <div className="container-fluid">
+    <div className="container">
       <Router>
-        <div className="App">
+        <div>
           <Header />
           <Switch>
             <Route exact path="/">
