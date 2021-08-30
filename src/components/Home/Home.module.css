@@ -1,0 +1,10 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  /* height: 1000px; */
+}
+
+.title {
+  text-align: center;
+  font-size: 40px;
+}
