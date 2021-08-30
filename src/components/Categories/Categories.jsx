@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import styles from "./Categories.module.css";
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
@@ -18,14 +19,13 @@ const Categories = () => {
     const newCategory = {};
     newCategory.slug = slugInput;
     newCategory.description = descriptionInput;
-    axios.post("http://localhost:9090/api/categories", newCategory);
+    axios.post("https://arteh97.herokuapp.com/api/categories", newCategory);
   };
 
   useEffect(() => {
-    fetch("http://localhost:9090/api/categories")
+    fetch("https://arteh97.herokuapp.com/api/categories")
       .then((response) => response.json())
       .then((body) => {
-        console.log(body)
         setCategories(body.categories);
       })
       .catch((err) => console.log(err));

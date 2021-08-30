@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
+import Categories from "./components/Categories/Categories";
 
 import "./App.css";
 
@@ -9,10 +10,13 @@ const App = () => {
     <div className="container-fluid">
       <Router>
         <div className="App">
+          <Header />
           <Switch>
             <Route exact path="/">
-              <Header />
               <Home />
+            </Route>
+            <Route exact path="/categories">
+              <Categories />
             </Route>
           </Switch>
         </div>
