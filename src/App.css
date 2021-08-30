@@ -1,7 +1,7 @@
 .container-fluid {
-  height: 10000px;
+  align-items: center;
 }
 
 .App {
-  height: 1000px;
+  text-align: start;
 }

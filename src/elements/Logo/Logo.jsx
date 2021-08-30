@@ -4,8 +4,8 @@ import logo from "./logo.png";
 
 const Logo = () => {
   return (
-    <div>
-      <img class={styles.icon} src={logo} alt="logo"></img>
+    <div className={styles.icon}>
+      <img src={logo} alt="logo"></img>
     </div>
   );
 };
