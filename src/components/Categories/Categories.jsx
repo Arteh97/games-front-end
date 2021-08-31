@@ -37,11 +37,17 @@ const Categories = () => {
     <div className={styles.container}>
       <header>Categories</header>
       <div className={styles.__categories}>
-        <section className={styles.cards}>
+        <section className="card-group">
           {categories.map((category) => {
             return (
               <article className={styles.card} key={category.slug}>
-                <img src={icon} alt="icon"></img>
+                <div
+                  className="card-img-top"
+                  src=".../100pxx200"
+                  alt="Card image cap"
+                >
+                  <img src={icon} alt="icon"></img>
+                </div>
                 <h4>{category.slug}</h4>
                 <p className={styles.description}>{category.description}</p>
               </article>
