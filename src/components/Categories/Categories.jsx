@@ -36,25 +36,25 @@ const Categories = () => {
   return (
     <div className={styles.container}>
       <header>Categories</header>
-      <div className={styles.__categories}>
-        <section className="card-group">
-          {categories.map((category) => {
-            return (
-              <article className={styles.card} key={category.slug}>
-                <div
-                  className="card-img-top"
-                  src=".../100pxx200"
-                  alt="Card image cap"
-                >
-                  <img src={icon} alt="icon"></img>
-                </div>
+      {/* <div className={styles.__categories}> */}
+      <section className="card-group">
+        {categories.map((category) => {
+          return (
+            <article key={category.slug}>
+              <div
+                className={styles.card}
+                src=".../100pxx200"
+                alt="Card image cap"
+              >
+                <img src={icon} alt="icon"></img>
                 <h4>{category.slug}</h4>
-                <p className={styles.description}>{category.description}</p>
-              </article>
-            );
-          })}
-        </section>
-      </div>
+              </div>
+              <p className={styles.description}>{category.description}</p>
+            </article>
+          );
+        })}
+      </section>
+      {/* </div> */}
     </div>
   );
 };

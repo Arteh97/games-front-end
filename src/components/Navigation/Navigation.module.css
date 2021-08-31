@@ -12,12 +12,12 @@
 
 .navbar {
   margin-top: 0.5vh;
-  margin-bottom: 1vh;
+  margin-bottom: 6vh;
   height: 5vh;
 }
 
 a {
-  font-size: 2.75vh;
+  font-size: 1.9vw;
 }
 
 button {
@@ -30,4 +30,30 @@ button:hover {
   border: none;
   font-weight: bolder;
   color: #4656e6;
+}
+
+@media screen and (max-width: 751px) {
+  a {
+    font-size: 3.75vw;
+  }
+
+  button {
+    border: none;
+    background: transparent;
+    font-weight: bolder;
+    color: #000000;
+  }
+  button:hover {
+    border: none;
+    font-weight: bolder;
+    color: #4656e6;
+  }
+
+  .navigation {
+    display: flex;
+    flex-direction: row;
+    height: 7vh;
+    width: 100%;
+    margin-bottom: 12.5vh;
+  }
 }
