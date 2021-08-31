@@ -3,7 +3,7 @@ import "./Header.module.css";
 
 const Header = () => {
   return (
-    <div class="navigation">
+    <div className="navigation">
       <Navigation />
     </div>
   );
