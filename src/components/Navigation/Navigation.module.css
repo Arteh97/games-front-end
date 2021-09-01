@@ -1,7 +1,6 @@
 .navigation {
   display: flex;
   flex-direction: row;
-  height: 7vh;
   width: 100%;
   margin-bottom: 7.5vh;
 }
@@ -13,20 +12,30 @@
 }
 
 @media screen and (min-width: 750px) {
-  a {
-    font-size: 2.5vw;
-  }
-
   .button {
+    margin-top: 1.5vh;
+    min-width: 130px;
+    height: 40px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 5px;
     border: none;
-    background: transparent;
-    font-weight: bolder;
-    color: #000000;
+    background: #343a40;
+    box-shadow: 0 5px #212529;
   }
   .button:hover {
-    border: none;
-    font-weight: bolder;
-    color: #4656e6;
+    box-shadow: 0 3px #adb5bd;
+    top: 1px;
+  }
+  .button:active {
+    box-shadow: 0 0 #adb5bd;
+    top: 5px;
   }
   ._navigation {
     border-top-left-radius: 10px;
@@ -34,20 +43,30 @@
 }
 
 @media screen and (max-width: 751px) {
-  a {
-    font-size: 2.5vw;
-  }
-
   .button {
+    margin-top: 1.5vh;
+    min-width: 130px;
+    height: 40px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 5px;
     border: none;
-    background: transparent;
-    font-weight: bolder;
-    color: #000000;
+    background: #343a40;
+    box-shadow: 0 5px #212529;
   }
   .button:hover {
-    border: none;
-    font-weight: bolder;
-    color: #4656e6;
+    box-shadow: 0 3px #adb5bd;
+    top: 1px;
+  }
+  .button:active {
+    box-shadow: 0 0 #adb5bd;
+    top: 5px;
   }
 
   .navigation {

@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./Reviews.module.css";
 
 const Reviews = () => {
-  const [review_id, setReview_id] = useState([]);
   const [reviews, setReviews] = useState([]);
-  const [comments, setComments] = useState([]);
 
   useEffect(() => {
     fetch("https://arteh97.herokuapp.com/api/reviews")
