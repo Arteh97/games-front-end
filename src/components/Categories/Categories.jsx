@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "./Categories.module.css";
-import Logo from "../../elements/Logo/Logo";
 import icon from "../../images/categories-icon.png";
 
 const Categories = () => {
@@ -34,11 +33,11 @@ const Categories = () => {
   }, [categories]);
 
   return (
-    <div className={styles.container}>
-      <section className="card-group">
+    <div className={styles.content}>
+      <section className="card-group container">
         <form className={styles.form} onSubmit={handleSubmit}>
           <h2>Post Category</h2>
-          <label className="form">
+          <label className={styles.field}>
             Category:
             <textarea
               onChange={handleSlugChange}
@@ -48,31 +47,27 @@ const Categories = () => {
               placeholder="new category here..."
             />
           </label>
-          <label type="submit" className="">
+          <label type="submit" className={styles.field}>
             Description
             <textarea
               onChange={handleDescriptionChange}
-              rows="1"
+              rows="3"
               placeholder="description goes here..."
             />
+            <button
+              className={styles.form__button}
+              type="submit"
+              onClick={handleSubmit}
+            >
+              submit
+            </button>
           </label>
-          <button
-            className={styles.form__button}
-            type="submit"
-            onClick={handleSubmit}
-          >
-            submit
-          </button>
         </form>
 
         {categories.map((category) => {
           return (
             <article key={category.slug}>
-              <div
-                className={styles.card}
-                src=".../100pxx200"
-                alt="Card image cap"
-              >
+              <div src=".../100pxx200" alt="Card image cap">
                 <img src={icon} alt="icon"></img>
                 <h4>{category.slug}</h4>
               </div>

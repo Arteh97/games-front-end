@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div className={styles.content}>
       <header className={styles.title}>Home Page</header>
-      <main className={styles.inner__cover}>
+      <main className={styles.container}>
         <h1 className={styles.header}>Welcome to NC Games</h1>
         <p className={styles.lead}>
           This is a game review website which will host mock data from a

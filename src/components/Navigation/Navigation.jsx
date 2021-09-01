@@ -9,13 +9,10 @@ const Navigation = () => {
         <Logo />
       </Link>
       <Link to="/categories">
-        <button>Categories</button>
+        <button className={styles.button}>Categories</button>
       </Link>
       <Link to="/reviews">
-        <button>Reviews</button>
-      </Link>
-      <Link to="/users">
-        <button>Users</button>
+        <button className={styles.button}>Reviews</button>
       </Link>
     </div>
   );

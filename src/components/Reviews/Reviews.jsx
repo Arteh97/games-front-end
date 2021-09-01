@@ -2,26 +2,29 @@ import React, { useEffect, useState } from "react";
 import styles from "./Reviews.module.css";
 
 const Reviews = () => {
+  const [review_id, setReview_id] = useState([]);
   const [reviews, setReviews] = useState([]);
+  const [comments, setComments] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:9090/api/reviews")
+    fetch("https://arteh97.herokuapp.com/api/reviews")
       .then((response) => response.json())
       .then((body) => {
         setReviews(body.reviews);
       })
+      .then(() => {})
       .catch((err) => console.log(err));
   }, [reviews]);
 
   return (
-    <div className="rectangle-page">
+    <div className={styles.container}>
       <header>Reviews</header>
-      <div>
+      <div className={styles.content}>
         <ul>
           {reviews.map((review) => {
             return (
-              <li key={review.review_id} className="review">
-                <div className="review_img">
+              <li key={review.review_id} className={styles.review}>
+                <div className={styles.review_img}>
                   <img
                     src={review.review_img_url}
                     alt="img"
@@ -29,15 +32,14 @@ const Reviews = () => {
                     width="100px"
                   ></img>
                 </div>
-                <div className="review-props">{review.review_id}</div>
-                <div className="review-props">{review.category}</div>
-                <div className="review-props">{review.owner}</div>
-                <div className="review-props">{review.designer}</div>
-                <div className="review-props">{review.title}</div>
-                <div className="review-body">{review.body}</div>
-                <div className="review-props">{review.created_at}</div>
-                <div className="review-props">{review.votes}</div>
-                <div className="review-props">{review.comment_count}</div>
+                <div>{review.category}</div>
+                <div>{review.owner}</div>
+                <div>{review.designer}</div>
+                <div>{review.title}</div>
+                <div>{review.review_body}</div>
+                <div>{review.created_at}</div>
+                <div>{review.votes}</div>
+                <div>{review.comment_count}</div>
               </li>
             );
           })}

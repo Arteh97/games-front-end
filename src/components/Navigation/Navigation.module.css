@@ -17,13 +17,13 @@
     font-size: 2.5vw;
   }
 
-  button {
+  .button {
     border: none;
     background: transparent;
     font-weight: bolder;
     color: #000000;
   }
-  button:hover {
+  .button:hover {
     border: none;
     font-weight: bolder;
     color: #4656e6;
@@ -38,13 +38,13 @@
     font-size: 2.5vw;
   }
 
-  button {
+  .button {
     border: none;
     background: transparent;
     font-weight: bolder;
     color: #000000;
   }
-  button:hover {
+  .button:hover {
     border: none;
     font-weight: bolder;
     color: #4656e6;
