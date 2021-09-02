@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "./Categories.module.css";
-import icon from "../../images/categories-icon.png";
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
   const [slugInput, setSlugInput] = useState("");
   const [descriptionInput, setDescriptionInput] = useState("");
+
+  // onClick(category) will take the user to a page displaying Reviews by category
 
   const handleSlugChange = (e) => {
     setSlugInput(e.currentTarget.value);
@@ -33,49 +34,62 @@ const Categories = () => {
   }, [categories]);
 
   return (
-    <div className={styles.content}>
-      <section className="card-group container">
-        <form className={styles.form} onSubmit={handleSubmit}>
+    <div className="container mt-5">
+      <div className={styles.content}>
+        <form onSubmit={handleSubmit}>
           <h2>Post Category</h2>
-          <label className={styles.field}>
-            Category:
-            <textarea
-              onChange={handleSlugChange}
-              rows="1"
-              value={slugInput}
-              type="text"
-              placeholder="new category here..."
-            />
-          </label>
-          <label type="submit" className={styles.field}>
-            Description
-            <textarea
-              onChange={handleDescriptionChange}
-              rows="3"
-              placeholder="description goes here..."
-            />
-            <button
-              className={styles.form__button}
-              type="submit"
-              onClick={handleSubmit}
-            >
-              submit
-            </button>
-          </label>
+          <div className={styles.form}>
+            <label className={styles.field}>
+              Category:
+              <textarea
+                onChange={handleSlugChange}
+                rows="1"
+                value={slugInput}
+                type="text"
+                placeholder="new category here..."
+              />
+            </label>
+            <label type="submit" className={styles.field}>
+              Description
+              <textarea
+                onChange={handleDescriptionChange}
+                rows="3"
+                placeholder="description goes here..."
+              />
+              <button
+                className={styles.button}
+                type="submit"
+                onClick={handleSubmit}
+              >
+                submit
+              </button>
+            </label>
+          </div>
         </form>
-
+      </div>
+      <div className="row">
         {categories.map((category) => {
           return (
-            <article key={category.slug}>
-              <div src=".../100pxx200" alt="Card image cap">
-                <img src={icon} alt="icon"></img>
-                <h4>{category.slug}</h4>
+            <div class="col-md-4">
+              <div class={styles.card}>
+                <div class={styles.category}>
+                  <div class="d-flex flex-column ml-2">
+                    <span class={"text-black-50"}>{category.slug}</span>
+                    <span class="text-black-50">{category.description}</span>
+                    <span class="ratings">
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                    </span>
+                  </div>
+                </div>
               </div>
-              <p className={styles.description}>{category.description}</p>
-            </article>
+            </div>
           );
         })}
-      </section>
+        <div />
+      </div>
     </div>
   );
 };

@@ -1,8 +1,10 @@
-.navigation {
+.content {
   display: flex;
   flex-direction: row;
+  /* justify-content: center; */
   width: 100%;
   margin-bottom: 7.5vh;
+  height: auto;
 }
 
 .navbar {
@@ -13,7 +15,7 @@
 
 @media screen and (min-width: 750px) {
   .button {
-    margin-top: 1.5vh;
+    margin: 3px;
     min-width: 130px;
     height: 40px;
     color: #fff;
@@ -26,11 +28,11 @@
     outline: none;
     border-radius: 5px;
     border: none;
-    background: #343a40;
-    box-shadow: 0 5px #212529;
+    background: rgb(2, 57, 139);
+    box-shadow: 1px 2.75px 2px 2px #000000;
   }
   .button:hover {
-    box-shadow: 0 3px #adb5bd;
+    box-shadow: 0 2px 1px 1px #adb5bd;
     top: 1px;
   }
   .button:active {
@@ -44,7 +46,7 @@
 
 @media screen and (max-width: 751px) {
   .button {
-    margin-top: 1.5vh;
+    margin: 3px;
     min-width: 130px;
     height: 40px;
     color: #fff;
@@ -57,11 +59,11 @@
     outline: none;
     border-radius: 5px;
     border: none;
-    background: #343a40;
-    box-shadow: 0 5px #212529;
+    background: rgb(2, 57, 139);
+    box-shadow: 1px 2.75px 2px 2px #000000;
   }
   .button:hover {
-    box-shadow: 0 3px #adb5bd;
+    box-shadow: 0 2px 1px 1px #093766;
     top: 1px;
   }
   .button:active {
@@ -72,7 +74,7 @@
   .navigation {
     display: flex;
     flex-direction: row;
-    height: 7vh;
+    height: auto;
     width: 100%;
     margin-bottom: 12.5vh;
   }
