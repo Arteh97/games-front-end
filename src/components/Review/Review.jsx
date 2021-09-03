@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import CommentForm from "../../elements/CommentForm/CommentForm";
 import styles from "./Review.module.css";
 
 const Review = (props) => {
@@ -26,6 +27,7 @@ const Review = (props) => {
           setComments(err);
           console.log(err);
         } else {
+          console.log(body.comments);
           setComments(body.comments);
         }
       })
@@ -54,15 +56,19 @@ const Review = (props) => {
         <div>Votes: {review.votes}</div>
         <div className={styles.comments}>Comments</div>
         <div className="container mt-5">
-          <ul>
-            {comments.map((comment) => {
-              if (comment.msg === "No comments found") {
-                return <p>No comments found!</p>;
-              } else {
-                return <li key={comment.comment_id}>{comment.comment_id}</li>;
-              }
-            })}
-          </ul>
+          <CommentForm />
+          {comments.map((comment) => {
+            if (comment.msg === "No comments found") {
+              return <p>No comments found!</p>;
+            } else {
+              return (
+                <div className="row">
+                  <div key={comment.comment_id}>{comment.author}</div>
+                  <div>{comment.body}</div>
+                </div>
+              );
+            }
+          })}
         </div>
       </div>
     </div>
