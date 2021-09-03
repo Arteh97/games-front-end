@@ -35,10 +35,10 @@ const Categories = () => {
 
   return (
     <div className="container mt-5">
+      <h2>Post Category</h2>
       <div className={styles.content}>
-        <form onSubmit={handleSubmit}>
-          <h2>Post Category</h2>
-          <div className={styles.form}>
+        <div className={styles.form}>
+          <form onSubmit={handleSubmit}>
             <label className={styles.field}>
               Category:
               <textarea
@@ -64,8 +64,8 @@ const Categories = () => {
                 submit
               </button>
             </label>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
       <div className="row">
         {categories.map((category) => {

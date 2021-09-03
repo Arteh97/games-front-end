@@ -13,19 +13,30 @@ const Review = (props) => {
       .then((response) => response.json())
       .then((body) => {
         setReview(body.review[0]);
-      })
-      .then(() => {
-        fetch(`https://arteh97.herokuapp.com/api/reviews/${review_id}/comments`)
-          .then((response) => response.json())
-          .then((body) => {
-            setComments(body.comments);
-          });
       });
   }, [review]);
 
+  useEffect(() => {
+    fetch(`https://arteh97.herokuapp.com/api/reviews/${review_id}/comments`)
+      .then((response) => response.json())
+      .then((body) => {
+        const err = [];
+        if (body.msg === "No comments found") {
+          err.push(body);
+          setComments(err);
+          console.log(err);
+        } else {
+          setComments(body.comments);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [review_id]);
+
   return (
-    <div className={styles.container}>
-      <li key={review.review_id} className={styles.review}>
+    <div className="container mt-5">
+      <div key={review.review_id} className={styles.card}>
         <div className={styles.review_img}>
           <img
             src={review.review_img_url}
@@ -34,7 +45,7 @@ const Review = (props) => {
             width="100px"
           ></img>
         </div>
-        {review.review_title}
+        <div>{review.title}</div>
         <div className={styles.review_body}>{review.review_body}</div>
         <div>Owner: {review.owner}</div>
         <div>Designer: {review.designer}</div>
@@ -42,14 +53,18 @@ const Review = (props) => {
         <div>Created At: {review.created_at}</div>
         <div>Votes: {review.votes}</div>
         <div className={styles.comments}>Comments</div>
-      </li>
-      {comments.map((comment) => {
-        if (comment.length === 0) {
-          return <p>No Comments Found!</p>;
-        } else {
-          return <li key={comment.comment_id}>{comment.body}</li>;
-        }
-      })}
+        <div className="container mt-5">
+          <ul>
+            {comments.map((comment) => {
+              if (comment.msg === "No comments found") {
+                return <p>No comments found!</p>;
+              } else {
+                return <li key={comment.comment_id}>{comment.comment_id}</li>;
+              }
+            })}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 };

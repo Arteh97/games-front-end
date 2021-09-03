@@ -1,0 +1,164 @@
+.container {
+  width: 100%;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+@media screen and (min-width: 751px) {
+  form {
+    flex-direction: column;
+    /* width: 35rem; */
+    display: flex;
+    position: relative;
+    padding: 5px;
+    margin: 10px;
+    word-wrap: break-word;
+    border: 2.5px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.5em;
+    box-shadow: 5px 3.75px 30px 2px #000000;
+  }
+
+  .card {
+    position: relative;
+    display: flex;
+    height: 8rem auto;
+    width: auto;
+    margin: 10px;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    /* cursor: pointer; */
+    border: 2.5px solid rgba(0, 0, 0, 0.125);
+    box-shadow: 1px 2.75px 2px 2px #000000;
+    top: 1px;
+    background: url(../../images/category-background.svg);
+    -webkit-background-size: cover;
+    background-size: cover;
+    border: 2.5px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.5rem;
+    overflow: auto;
+  }
+  .card:hover {
+    box-shadow: 0 2px 1px 1px #093766;
+    top: 1px;
+  }
+  .card:active {
+    box-shadow: 0 0 #093766;
+    top: 5px;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+  }
+  textarea {
+    background: rgb(159, 197, 255);
+    filter: black(1px);
+    border-radius: 5px;
+  }
+
+  .button {
+    margin: 3px;
+    height: 40px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    background: rgb(2, 57, 139);
+    border-radius: 5px;
+    border: none;
+
+    box-shadow: 1px 2.75px 3px 2px #000000;
+  }
+  .button:hover {
+    box-shadow: 0 2px 1px 1px #093766;
+    top: 1px;
+  }
+  .button:active {
+    box-shadow: 0 0 #093766;
+    top: 5px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  form {
+    flex-direction: column;
+    /* width: 35rem; */
+    display: flex;
+    position: relative;
+    margin: 10px;
+    word-wrap: break-word;
+    border: 2.5px solid rgba(0, 0, 0, 0.125);
+    box-shadow: 1px 2.75px 30px 2px #000000;
+  }
+
+  .card {
+    position: relative;
+    display: flex;
+    height: 8rem auto;
+    width: auto;
+    margin: 10px;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    cursor: pointer;
+    border: 2.5px solid rgba(0, 0, 0, 0.125);
+    box-shadow: 1px 2.75px 2px 2px #000000;
+    top: 1px;
+    background: url(../../images/category-background.svg);
+    -webkit-background-size: cover;
+    background-size: cover;
+    border: 2.5px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.5rem;
+    overflow: auto;
+  }
+  .card:hover {
+    box-shadow: 0 2px 1px 1px #093766;
+    top: 1px;
+  }
+
+  .card:active {
+    box-shadow: 0 0 #093766;
+    top: 5px;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+  }
+  textarea {
+    background: rgb(159, 197, 255);
+    filter: black(1px);
+    border-radius: 5px;
+  }
+  .button {
+    margin: 3px;
+    min-width: 130px;
+    height: 40px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    background: rgb(68, 51, 128);
+    box-shadow: 1px 2.75px 2px 2px #000000;
+  }
+  .button:hover {
+    box-shadow: 0 2px 1px 1px #093766;
+    top: 1px;
+  }
+  .button:active {
+    box-shadow: 0 0 #adb5bd;
+    top: 5px;
+  }
+}
