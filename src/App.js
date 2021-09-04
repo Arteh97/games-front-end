@@ -1,9 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  useParams,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import Categories from "./components/Categories/Categories";

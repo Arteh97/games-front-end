@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import axios from "axios";
+import VoteButton from "../../elements/VoteButton/VoteButton";
 import CommentForm from "../../elements/CommentForm/CommentForm";
 import styles from "./Review.module.css";
 
 const Review = (props) => {
+  const [voted, setVoted] = useState(false);
   const { review_id } = useParams();
 
   const [review, setReview] = useState([]);
@@ -15,7 +18,7 @@ const Review = (props) => {
       .then((body) => {
         setReview(body.review[0]);
       });
-  }, [review]);
+  }, [review, voted]);
 
   useEffect(() => {
     fetch(`https://arteh97.herokuapp.com/api/reviews/${review_id}/comments`)
@@ -54,6 +57,11 @@ const Review = (props) => {
         <div>Category: {review.category}</div>
         <div>Created At: {review.created_at}</div>
         <div>Votes: {review.votes}</div>
+        <VoteButton
+          voted={voted}
+          setVoted={setVoted}
+          value={review.review_id}
+        />
         <div className={styles.comments}>Comments</div>
         <div className="container mt-5">
           <CommentForm />
@@ -63,8 +71,9 @@ const Review = (props) => {
             } else {
               return (
                 <div className="row">
-                  <div key={comment.comment_id}>{comment.author}</div>
+                  <div key={comment.comment_id}>Author: {comment.author}</div>
                   <div>{comment.body}</div>
+                  <div>Votes: {comment.votes}</div>
                 </div>
               );
             }
