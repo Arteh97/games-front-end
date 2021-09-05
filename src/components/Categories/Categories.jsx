@@ -35,10 +35,10 @@ const Categories = () => {
 
   return (
     <div className="container mt-5">
-      <h2>Post Category</h2>
       <div className={styles.content}>
         <div className={styles.form}>
           <form onSubmit={handleSubmit}>
+            <h2>Post Category</h2>
             <label className={styles.field}>
               Category:
               <textarea

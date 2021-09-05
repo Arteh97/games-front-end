@@ -18,11 +18,8 @@ const Reviews = () => {
 
   return (
     <div className="container mt-5">
-      <h2>Reviews</h2>
       <div className={styles.content}>
-        <div className={styles.form}>
-          <ReviewForm />
-        </div>
+        <ReviewForm />
         {reviews.map((review) => {
           return (
             <li key={review.review_id} className={styles.card}>

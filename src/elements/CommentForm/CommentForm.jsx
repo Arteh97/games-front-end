@@ -20,52 +20,45 @@ const CommentForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newComment = {};
-    newComment.review_id = review_id;
-    newComment.authorInput = authorInput;
-    newComment.bodyInput = bodyInput;
+    newComment.username = authorInput;
+    newComment.body = bodyInput;
+    console.log(newComment);
     return axios.post(
-      `https://arteh97.herokuapp.com/api/${review_id}/comments`,
+      `https://arteh97.herokuapp.com/api/reviews/${review_id}/comments`,
       {
-        review_id: review_id,
-        author: newComment.author,
         body: newComment.body,
+        username: newComment.username,
       }
     );
   };
 
   return (
-    <div>
+    <div className="container mt-5">
       <form onSubmit={handleSubmit}>
         <h2>Post Comment</h2>
-        <div className={styles.form}>
-          <label className={styles.field}>
-            Author:
-            <textarea
-              onChange={handleAuthorChange}
-              rows="1"
-              value={authorInput}
-              type="text"
-              placeholder="Author goes here..."
-            />
-          </label>
-          <label className={styles.field}>
-            Comment:
-            <textarea
-              onChange={handleBodyChange}
-              rows="2"
-              value={bodyInput}
-              type="text"
-              placeholder="Comment goes here..."
-            />
-          </label>
-          <button
-            className={styles.button}
-            type="submit"
-            onClick={handleSubmit}
-          >
-            submit
-          </button>
-        </div>
+        <label className={styles.field}>
+          Author:
+          <textarea
+            onChange={handleAuthorChange}
+            rows="1"
+            value={authorInput}
+            type="text"
+            placeholder="Author goes here..."
+          />
+        </label>
+        <label className={styles.field}>
+          Comment:
+          <textarea
+            onChange={handleBodyChange}
+            rows="2"
+            value={bodyInput}
+            type="text"
+            placeholder="Comment goes here..."
+          />
+        </label>
+        <button className={styles.button} type="submit" onClick={handleSubmit}>
+          submit
+        </button>
       </form>
     </div>
   );

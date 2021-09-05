@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
-import VoteButton from "../../elements/VoteButton/VoteButton";
+import ReviewVoteButton from "../../elements/ReviewVoteButton/ReviewVoteButton";
 import CommentForm from "../../elements/CommentForm/CommentForm";
+import CommentSection from "../../elements/CommentSection/CommentSection";
 import styles from "./Review.module.css";
 
 const Review = (props) => {
@@ -10,7 +10,6 @@ const Review = (props) => {
   const { review_id } = useParams();
 
   const [review, setReview] = useState([]);
-  const [comments, setComments] = useState([]);
 
   useEffect(() => {
     fetch(`https://arteh97.herokuapp.com/api/reviews/${review_id}`)
@@ -18,26 +17,7 @@ const Review = (props) => {
       .then((body) => {
         setReview(body.review[0]);
       });
-  }, [review, voted]);
-
-  useEffect(() => {
-    fetch(`https://arteh97.herokuapp.com/api/reviews/${review_id}/comments`)
-      .then((response) => response.json())
-      .then((body) => {
-        const err = [];
-        if (body.msg === "No comments found") {
-          err.push(body);
-          setComments(err);
-          console.log(err);
-        } else {
-          console.log(body.comments);
-          setComments(body.comments);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [review_id]);
+  }, [review_id, voted]);
 
   return (
     <div className="container mt-5">
@@ -57,7 +37,7 @@ const Review = (props) => {
         <div>Category: {review.category}</div>
         <div>Created At: {review.created_at}</div>
         <div>Votes: {review.votes}</div>
-        <VoteButton
+        <ReviewVoteButton
           voted={voted}
           setVoted={setVoted}
           value={review.review_id}
@@ -65,20 +45,8 @@ const Review = (props) => {
         <div className={styles.comments}>Comments</div>
         <div className="container mt-5">
           <CommentForm />
-          {comments.map((comment) => {
-            if (comment.msg === "No comments found") {
-              return <p>No comments found!</p>;
-            } else {
-              return (
-                <div className="row">
-                  <div key={comment.comment_id}>Author: {comment.author}</div>
-                  <div>{comment.body}</div>
-                  <div>Votes: {comment.votes}</div>
-                </div>
-              );
-            }
-          })}
         </div>
+        <CommentSection review_id={review_id} />
       </div>
     </div>
   );

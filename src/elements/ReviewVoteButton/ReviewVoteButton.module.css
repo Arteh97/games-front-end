@@ -26,14 +26,6 @@
     border-radius: 0.5rem;
     overflow: auto hidden;
   }
-  .card:hover {
-    box-shadow: 0 2px 1px 1px #093766;
-    top: 1px;
-  }
-  .card:active {
-    box-shadow: 0 0 #093766;
-    top: 5px;
-  }
 
   .field {
     display: flex;
@@ -103,15 +95,6 @@
     border: 2.5px solid rgba(0, 0, 0, 0.125);
     border-radius: 0.5rem;
     overflow: auto hidden;
-  }
-  .card:hover {
-    box-shadow: 0 2px 1px 1px #093766;
-    top: 1px;
-  }
-
-  .card:active {
-    box-shadow: 0 0 #093766;
-    top: 5px;
   }
 
   .field {

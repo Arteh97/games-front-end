@@ -49,67 +49,61 @@ const ReviewForm = () => {
   };
 
   return (
-    <div>
+    <div className="container mt-5">
       <form onSubmit={handleSubmit}>
         <h2>Post Review</h2>
-        <div className={styles.form}>
-          <label className={styles.field}>
-            Owner:
-            <textarea
-              onChange={handleOwnerChange}
-              rows="1"
-              value={ownerInput}
-              type="text"
-              placeholder="Owner goes here..."
-            />
-          </label>
-          <label className={styles.field}>
-            Review Title:
-            <textarea
-              onChange={handleTitleChange}
-              rows="1"
-              value={reviewTitleInput}
-              type="text"
-              placeholder="Review title here..."
-            />
-          </label>
-          <label className={styles.field}>
-            Body:
-            <textarea
-              onChange={handleBodyChange}
-              rows="3"
-              value={reviewBodyInput}
-              type="text"
-              placeholder="Review goes here..."
-            />
-          </label>
-          <label type="submit" className={styles.field}>
-            Designer
-            <textarea
-              onChange={handleDesignerChange}
-              rows="1"
-              value={designerInput}
-              placeholder="Designer goes here..."
-            />
-          </label>
-          <label className={styles.field}>
-            Category:
-            <textarea
-              onChange={handleCategoryChange}
-              rows="1"
-              value={categoryInput}
-              type="text"
-              placeholder="Category goes here..."
-            />
-          </label>
-          <button
-            className={styles.button}
-            type="submit"
-            onClick={handleSubmit}
-          >
-            submit
-          </button>
-        </div>
+        <label className={styles.field}>
+          Owner:
+          <textarea
+            onChange={handleOwnerChange}
+            rows="1"
+            value={ownerInput}
+            type="text"
+            placeholder="Owner goes here..."
+          />
+        </label>
+        <label className={styles.field}>
+          Review Title:
+          <textarea
+            onChange={handleTitleChange}
+            rows="1"
+            value={reviewTitleInput}
+            type="text"
+            placeholder="Review title here..."
+          />
+        </label>
+        <label className={styles.field}>
+          Body:
+          <textarea
+            onChange={handleBodyChange}
+            rows="3"
+            value={reviewBodyInput}
+            type="text"
+            placeholder="Review goes here..."
+          />
+        </label>
+        <label type="submit" className={styles.field}>
+          Designer
+          <textarea
+            onChange={handleDesignerChange}
+            rows="1"
+            value={designerInput}
+            placeholder="Designer goes here..."
+          />
+        </label>
+        <label className={styles.field}>
+          Category:
+          <textarea
+            onChange={handleCategoryChange}
+            rows="1"
+            value={categoryInput}
+            type="text"
+            placeholder="Category goes here..."
+          />
+        </label>
+        <button className={styles.button} type="submit" onClick={handleSubmit}>
+          submit
+        </button>
       </form>
     </div>
   );

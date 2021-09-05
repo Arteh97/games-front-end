@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-// import styles from "./VoteButton.module.css";
+import styles from "./ReviewVoteButton.module.css";
 
-const VoteButton = (props) => {
+const ReviewVoteButton = (props) => {
   const { voted, setVoted } = props;
   const { review_id } = useParams();
 
@@ -19,7 +19,11 @@ const VoteButton = (props) => {
       });
   };
 
-  return <button onClick={updateVotes}>{voted ? "👍 Voted!" : "Vote?"}</button>;
+  return (
+    <button className={styles.button} onClick={updateVotes}>
+      {voted ? "👍 Voted!" : "Vote?"}
+    </button>
+  );
 };
 
-export default VoteButton;
+export default ReviewVoteButton;
