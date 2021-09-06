@@ -1,20 +1,20 @@
 .content {
-  display: flex;
+  /* display: flex;
   flex-direction: row;
   /* justify-content: center; */
-  width: 100%;
+  /* width: 100%;
   margin-bottom: 7.5vh;
-  height: auto;
+  height: auto;  */
 }
 
 .navbar {
-  margin-top: 0.5vh;
+  /* margin-top: 0.5vh;
   margin-bottom: 6vh;
-  height: 5vh;
+  height: 5vh;*/
 }
 
 @media screen and (min-width: 750px) {
-  .button {
+  /* .button {
     margin: 3px;
     min-width: 130px;
     height: 40px;
@@ -38,14 +38,14 @@
   .button:active {
     box-shadow: 0 0 #adb5bd;
     top: 5px;
-  }
+  } */
   ._navigation {
     border-top-left-radius: 10px;
   }
 }
 
 @media screen and (max-width: 751px) {
-  .button {
+  /* .button {
     margin: 3px;
     min-width: 130px;
     height: 40px;
@@ -69,13 +69,13 @@
   .button:active {
     box-shadow: 0 0 #adb5bd;
     top: 5px;
-  }
+  } */
 
   .navigation {
-    display: flex;
+    /* display: flex;
     flex-direction: row;
     height: auto;
     width: 100%;
-    margin-bottom: 12.5vh;
+    margin-bottom: 12.5vh; */
   }
 }

@@ -1,35 +1,44 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Header from "./components/Header/Header";
-import Home from "./components/Home/Home";
-import Categories from "./components/Categories/Categories";
-import Reviews from "./components/Reviews/Reviews";
-import Review from "./components/Review/Review";
-import "./App.css";
+import React, { useState, useEffect } from "react";
+import styled, { ThemeProvider } from "styled-components";
+import WebFont from "webfontloader";
+import { GlobalStyles } from "./contexts/GlobalStyles";
+import { useTheme } from "./contexts/useTheme";
+import ThemeSelector from "./components/ThemeSelector/ThemeSelector";
 
-const App = () => {
+const Container = styled.div`
+  margin: 5px auto 5px auto;
+`;
+
+function App() {
+  const { theme, themeLoaded, getFonts } = useTheme();
+  const [selectedTheme, setSelectedTheme] = useState(theme);
+
+  useEffect(() => {
+    WebFont.load({
+      google: {
+        families: getFonts(),
+      },
+    });
+  });
+
+  useEffect(() => {
+    setSelectedTheme(theme);
+  }, [themeLoaded]);
+
   return (
-    <div className={`App`}>
-      <Router>
-        <div className="content">
-          <Header />
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route exact path="/categories">
-              <Categories />
-            </Route>
-            <Route exact path="/reviews">
-              <Reviews />
-            </Route>
-            <Route exact path="/reviews/:review_id">
-              <Review />
-            </Route>
-          </Switch>
-        </div>
-      </Router>
+    <div className="html">
+      {themeLoaded && (
+        <ThemeProvider theme={selectedTheme}>
+          <GlobalStyles />
+          <Container style={{ fontFamily: selectedTheme.font }}>
+            <h1>Theming System</h1>
+
+            <ThemeSelector setter={setSelectedTheme} />
+          </Container>
+        </ThemeProvider>
+      )}
     </div>
   );
-};
+}
 
 export default App;

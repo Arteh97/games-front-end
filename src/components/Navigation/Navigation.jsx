@@ -12,10 +12,13 @@ const Navigation = () => {
       </div>
       <div className={styles.buttons}>
         <Link to="/categories">
-          <button className={styles.button}>Categories</button>
+          <button>Categories</button>
         </Link>
         <Link to="/reviews">
-          <button className={styles.button}>Reviews</button>
+          <button>Reviews</button>
+        </Link>
+        <Link to="/users">
+          <button>Designers</button>
         </Link>
       </div>
     </div>
