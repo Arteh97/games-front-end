@@ -11,7 +11,7 @@
     { "path": "../packages/native" },
     { "path": "../packages/native-stack" },
     { "path": "../packages/routers" },
-    { "path": "../packages/stack" },
+    { "path": "../packages/stack" }
   ],
   "compilerOptions": {
     // Avoid expo-cli auto-generating a tsconfig
